@@ -1,45 +1,229 @@
 <img align="center" src="https://media.licdn.com/dms/image/v2/D4D16AQGUNxQ7NSC05A/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1738695150340?e=1744243200&v=beta&t=oXX-ixT9bR3dJcYCLv4KBs5wjKFoeP0524kFGHQMYmQ" alt="gabriellugo" />
 
-# CYBERSECURITY LOGS DOCUMENTATION
+# OWASP PASSWORD STRENGHT TEST
 
-<a href="https://github.com/GabrielLugooo/CiberSec-Logs-English" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/English%20Logs-000000" alt="English Logs" /></a>
-<a href="https://github.com/GabrielLugooo/CiberSec-Logs-Spanish" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/Spanish%20Logs-green" alt="Spanish Logs" /></a>
+<a href="https://github.com/GabrielLugooo/Owasp-Password-Strength-Test" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/English%20OWASP-000000" alt="English OWASP" /></a>
+<a href="https://github.com/GabrielLugooo/Owasp-Password-Strength-Test/blob/main/README%20Spanish.md" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/Spanish%20OWASP-green" alt="Spanish OWASP" /></a>
 
 ### Objective
 
-The Cybersecurity Logs Documentation project aims to centralize and organize various security log records to enhance cybersecurity analysis and threat detection. By compiling logs from different sources, this repository provides a structured dataset for research, training, and real-world security assessments.
+OWASP Password Strenght Test is a password-strength tester based off of the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#Implement_Proper_Password_Strength_Controls" target="_blank" rel="noreferrer noopener">OWASP Guidelines for enforcing secure passwords</a>. It is lightweight, extensible, has no dependencies, and can be used on the server (nodejs) or in-browser.
 
-The primary goal is to facilitate better understanding of log-based security monitoring, helping cybersecurity professionals, researchers, and enthusiasts analyze patterns, identify anomalies, and improve incident response strategies. The documentation includes detailed explanations of log formats, key security events, and best practices for log management.
-
-This collection serves as a valuable resource for setting up Security Information and Event Management (SIEM) systems, forensic investigations, and automated threat detection mechanisms. It helps users simulate and study attack scenarios based on real-world log data, contributing to proactive cybersecurity defenses.
-
-By consolidating these logs into a single repository, we aim to create a comprehensive knowledge base that supports learning, security tool development, and effective cyber threat mitigation.
+OWASP Password Strenght Test is not an OWASP project, it is merely based off of OWASP research.
 
 ### Skills Learned
 
-- Advanced understanding of SIEM concepts and practical application.
-- Proficiency in analyzing and interpreting network logs.
-- Ability to generate and recognize attack signatures and patterns.
+- Understanding of OWASP guidelines for authentication and enforcement of passwords.
+- Proficiency in analyzing and interpreting node.js, jsno and yaml.
+- Ability to generate and recognize signatures and patterns in Authentication, digital identtity, identtity proofing and session management.
 - Enhanced knowledge of network protocols and security vulnerabilities.
 - Development of critical thinking and problem-solving skills in cybersecurity.
 
 ### Tools Used
 
-- Security Information and Event Management (SIEM) systems (Google SecOps and Splunk) for log ingestion and analysis.
-- Network analysis tools (TCPDump, Wireshark) for capturing and examining network traffic.
-- Network analysis and algorythms created with code languages (Linux, SQL, Python) for automatization of capturing, examining and analyze network traffic.
-- Telemetry generation tools to create realistic network traffic and attack scenarios.
+![Static Badge](https://img.shields.io/badge/OWASP-000000?logo=owasp&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/HTML-000000?logo=html5&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/Javascript-000000?logo=javascript&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/Node.JS-000000?logo=nodedotjs&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/Json-000000?logo=json&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/YAML-000000?logo=yaml&logoSize=auto)
+![Static Badge](https://img.shields.io/badge/Travis-000000?logo=travis&logoSize=auto)
 
-### Logs Categories:
+### Installing
 
-- <a href="https://github.com/GabrielLugooo/CiberSec-Logs-English/tree/main/Access%20Control" target="_blank" rel="noreferrer noopener">Access Control Logs</a>
-- <a href="https://github.com/GabrielLugooo/CiberSec-Logs-English/tree/main/Audits" target="_blank" rel="noreferrer noopener">Audits Logs</a>
-- <a href="https://github.com/GabrielLugooo/CiberSec-Logs-English/tree/main/IOC%20Indicators" target="_blank" rel="noreferrer noopener">IOC Indicators Logs</a>
-- <a href="https://github.com/GabrielLugooo/CiberSec-Logs-English/tree/main/Incidents" target="_blank" rel="noreferrer noopener">Incidents Logs</a>
-- <a href="https://github.com/GabrielLugooo/CiberSec-Logs-English/tree/main/PASTA" target="_blank" rel="noreferrer noopener">PASTA Logs</a>
-- <a href="https://github.com/GabrielLugooo/CiberSec-Logs-English/tree/main/Phishing" target="_blank" rel="noreferrer noopener">Phishing Logs</a>
-- <a href="https://github.com/GabrielLugooo/CiberSec-Logs-English/tree/main/Risk%20Register" target="_blank" rel="noreferrer noopener">Risk Register Logs</a>
-- <a href="https://github.com/GabrielLugooo/CiberSec-Logs-English/tree/main/Vulnerability%20Assessment" target="_blank" rel="noreferrer noopener">Vulnerability Assessment Logs</a>
+- #### Server-side (node.js)
+From the command line:
+
+```sh
+npm install owasp-password-strength-test
+```
+
+- #### In-browser
+Within your document:
+
+```html
+<script src='owasp-password-strength-test.js'></script>
+```
+
+### Features
+
+This module is built upon the following beliefs:
+
+1. <a href="https://xkcd.com/936/" target="_blank" rel="noreferrer noopener">Passphrases are better than passwords</a>
+
+2. Passwords should be subject to stricter complexity requirements than passphrases.
+
+Thus, the module:
+
+- **provides for "required" and "optional" tests**.
+  In order to be considered "strong", a password must pass _all_ required tests, as well as a
+  configurable number of optional tests. This makes it possible to always enforce certain rules (like minimum password length), while giving users
+  flexibility to honor only some of a pool of lower-priority rules.
+
+- **encourages the use of passphrases over passwords**.
+  Passphrases (by default) are not subject to the same complexity requirements as a password.
+  (Whereby, by default, a "passphrase" can be defined as "a password whose length is greater than or equal to 20 characters.")
+
+- **can be arbitrarily extended**
+  As-needed with additional required and optional tests.
+
+### Usage
+
+After you've included it into your project, using the module is straightforward:
+
+- #### Server-side
+  
+```javascript
+// require the module
+var owasp = require('owasp-password-strength-test');
+
+// invoke test() to test the strength of a password
+var result = owasp.test('correct horse battery staple');
+```
+
+- #### In Browser
+  
+```javascript
+// in the browser, including the script will make a
+// `window.owaspPasswordStrengthTest` object available.
+var result = owaspPasswordStrengthTest.test('correct horse battery staple');
+```
+
+The returned value will take this shape when the password is valid:
+
+```javascript
+{
+  errors              : [],
+  failedTests         : [],
+  requiredTestErrors  : [],
+  optionalTestErrors  : [],
+  passedTests         : [ 0, 1, 2, 3, 4, 5, 6 ],
+  isPassphrase        : false,
+  strong              : true,
+  optionalTestsPassed : 4
+}
+```
+
+and will take this shape when the password is invalid:
+
+```javascript
+{
+  errors: [
+      'The password must be at least 10 characters long.',
+      'The password must contain at least one uppercase letter.',
+      'The password must contain at least one number.',
+      'The password must contain at least one special character.'
+    ],
+    failedTests         : [ 0, 4, 5, 6 ],
+    passedTests         : [ 1, 2, 3 ],
+    requiredTestErrors  : [
+      'The password must be at least 10 characters long.',
+    ],
+    optionalTestErrors  : [
+      'The password must contain at least one uppercase letter.',
+      'The password must contain at least one number.',
+      'The password must contain at least one special character.'
+    ],
+    isPassphrase        : false,
+    strong              : false,
+    optionalTestsPassed : 1
+}
+```
+
+Whereby:
+
+- `errors` is an `array` of `string`s of error messages associated with the failed tests.
+
+- `failedTests` enumerates which tests have failed, beginning from 0 with the first required test
+
+- `passedTests` enumerates which tests have succeeded, beginning from 0 with the first required test
+
+- `requiredTestErrors` is an array containing the error messages of required tests that have failed.
+
+- `optionalTestErrors` is an array containing the error messages of optional tests that have failed.
+
+- `isPassphrase` is a `boolean` indicating whether or not the password was considered to be a passphrase.
+
+- `strong` is a `boolean` indicating whether or not the user's password satisfied the strength requirements.
+
+- `optionalTestsPassed` is a `number` indicating how many of the optional tests were passed.
+  In order for the password to be considered "strong", it (by default) must either be a passphrase,
+  or must pass a number of optional tests that is equal to or greater than `configs.minOptionalTestsToPass`.
+
+### Configuring
+
+The module may be configured as follows:
+
+```javascript
+var owasp = require('owasp-password-strength-test');
+
+// Pass a hash of settings to the `config` method. The settings shown here are
+// the defaults.
+owasp.config({
+  allowPassphrases       : true,
+  maxLength              : 128,
+  minLength              : 10,
+  minPhraseLength        : 20,
+  minOptionalTestsToPass : 4,
+});
+```
+
+Whereby:
+
+- `allowPassphrases` is a `boolean` that toggles the "passphrase" mechanism on and off.
+  If set to `false`, the strength-checker will abandon the notion of "passphrases", and will subject all passwords to the same complexity requirements.
+
+- `maxLength` is a constraint on a password's maximum length.
+
+- `minLength` is a constraint on a password's minimum length.
+
+- `minPhraseLength` is the minimum length a password needs to achieve in order to be considered a "passphrase" (and thus exempted from the optional complexity tests by default).
+
+- `minOptionalTestsToPass` is the minimum number of optional tests that a password must pass in order to be considered "strong".
+  By default (per the OWASP guidelines), four optional complexity tests are made, and a password must pass at least three of them in order to be considered "strong". 
+
+### Extending
+
+If you would like to filter passwords through additional tests beyond the default, you may simply push new tests onto the appropriate arrays within the module's `test` object:
+
+```javascript
+var owasp = require('owasp-password-strength-test');
+
+// push "required" tests onto `tests.required` array, and push "optional" tests
+// onto the `tests.optional` array.
+owasp.tests.required.push(function(password) {
+  if (password === 'one two three four five') {
+    return "That's the kind of thing an idiot would have on his luggage!";
+  }
+});
+```
+
+Test functions must resemble the following:
+
+```javascript
+// accept the password as the single argument
+function(password) {
+
+  // the "if" conditional should evaluate to `true` if the password is bad
+  if (thePasswordIsBad) {
+
+    // On password failure, a string should be returned. It will be pushed
+    // onto an array of errors associated with the password.
+    return "This is the failure message associated with the test";
+  }
+
+  // if the password is OK, nothing should be returned
+}
+```
+
+### Testing
+
+To run the module's test suite, `cd` into its directory and run `npm test`. 
+You may first need to run `npm install` to install the required development dependencies. (These dependencies are **not** required in a production environment, and facilitate only unit testing.)
+
+### Limitations
+
+OWASP Password Strenght Test is a copycat of <a href="https://github.com/nowsecure/owasp-password-strength-test" target="_blank" rel="noreferrer noopener">NOWSECURE</a> and it's just for educational purpose under the MIT License.
 
 ---
 
