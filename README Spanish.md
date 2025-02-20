@@ -2,8 +2,8 @@
 
 # PRUEBA OWASP DE FUERZA DE CONTRASEÑA
 
-<a href="https://github.com/GabrielLugooo/Owasp-Password-Strength-Test/blob/main/README%20Spanish.md" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/OWASP%20Español-000000" alt="OWASP Español" /></a>
-<a href="https://github.com/GabrielLugooo/Owasp-Password-Strength-Test" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/OWASP%20Inglés-green" alt="OWASP Inglés" /></a>
+<a href="https://github.com/GabrielLugooo/Owasp-Pass-Test/blob/main/README%20Spanish.md" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/OWASP%20Español-000000" alt="OWASP Español" /></a>
+<a href="https://github.com/GabrielLugooo/Owasp-Pass-Test/tree/main" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/OWASP%20Inglés-green" alt="OWASP Inglés" /></a>
 
 ### Objetivos
 
@@ -32,17 +32,17 @@ OWASP Password Strenght Test no es un proyecto de OWASP, simplemente se basa en 
 ### Installing
 
 - #### Server-side (node.js)
-From the command line:
+  From the command line:
 
 ```sh
 npm install owasp-password-strength-test
 ```
 
 - #### In-browser
-Within your document:
+  Within your document:
 
 ```html
-<script src='owasp-password-strength-test.js'></script>
+<script src="owasp-password-strength-test.js"></script>
 ```
 
 ### Features
@@ -72,21 +72,21 @@ Thus, the module:
 After you've included it into your project, using the module is straightforward:
 
 - #### Server-side
-  
+
 ```javascript
 // require the module
-var owasp = require('owasp-password-strength-test');
+var owasp = require("owasp-password-strength-test");
 
 // invoke test() to test the strength of a password
-var result = owasp.test('correct horse battery staple');
+var result = owasp.test("correct horse battery staple");
 ```
 
 - #### In Browser
-  
+
 ```javascript
 // in the browser, including the script will make a
 // `window.owaspPasswordStrengthTest` object available.
-var result = owaspPasswordStrengthTest.test('correct horse battery staple');
+var result = owaspPasswordStrengthTest.test("correct horse battery staple");
 ```
 
 The returned value will take this shape when the password is valid:
@@ -155,16 +155,16 @@ Whereby:
 The module may be configured as follows:
 
 ```javascript
-var owasp = require('owasp-password-strength-test');
+var owasp = require("owasp-password-strength-test");
 
 // Pass a hash of settings to the `config` method. The settings shown here are
 // the defaults.
 owasp.config({
-  allowPassphrases       : true,
-  maxLength              : 128,
-  minLength              : 10,
-  minPhraseLength        : 20,
-  minOptionalTestsToPass : 4,
+  allowPassphrases: true,
+  maxLength: 128,
+  minLength: 10,
+  minPhraseLength: 20,
+  minOptionalTestsToPass: 4,
 });
 ```
 
@@ -180,19 +180,19 @@ Whereby:
 - `minPhraseLength` is the minimum length a password needs to achieve in order to be considered a "passphrase" (and thus exempted from the optional complexity tests by default).
 
 - `minOptionalTestsToPass` is the minimum number of optional tests that a password must pass in order to be considered "strong".
-  By default (per the OWASP guidelines), four optional complexity tests are made, and a password must pass at least three of them in order to be considered "strong". 
+  By default (per the OWASP guidelines), four optional complexity tests are made, and a password must pass at least three of them in order to be considered "strong".
 
 ### Extending
 
 If you would like to filter passwords through additional tests beyond the default, you may simply push new tests onto the appropriate arrays within the module's `test` object:
 
 ```javascript
-var owasp = require('owasp-password-strength-test');
+var owasp = require("owasp-password-strength-test");
 
 // push "required" tests onto `tests.required` array, and push "optional" tests
 // onto the `tests.optional` array.
-owasp.tests.required.push(function(password) {
-  if (password === 'one two three four five') {
+owasp.tests.required.push(function (password) {
+  if (password === "one two three four five") {
     return "That's the kind of thing an idiot would have on his luggage!";
   }
 });
@@ -218,7 +218,7 @@ function(password) {
 
 ### Testing
 
-To run the module's test suite, `cd` into its directory and run `npm test`. 
+To run the module's test suite, `cd` into its directory and run `npm test`.
 You may first need to run `npm install` to install the required development dependencies. (These dependencies are **not** required in a production environment, and facilitate only unit testing.)
 
 ### Limitaciones
