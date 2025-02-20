@@ -11,20 +11,20 @@
   "jshintConfig": {
     "expr": true,
     "laxbreak": true
-   },
+  },
   "scripts": {
     "test": "mocha --recursive --reporter spec test.js",
     "lint": "jshint *.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nowsecure/owasp-password-strength-test.git"
+    "url": "https://github.com/GabrielLugooo/Owasp-Password-Strength-Test.git"
   },
   "keywords": [
     "security",
     "password",
     "owasp"
   ],
-  "author": "Chris Allen Lane",
+  "author": "Gabriel Lugo Copycat from Chris Allen Lane",
   "license": "MIT"
 }
