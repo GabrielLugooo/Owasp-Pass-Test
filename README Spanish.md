@@ -29,136 +29,136 @@ OWASP Password Strenght Test no es un proyecto de OWASP, simplemente se basa en 
 ![Static Badge](https://img.shields.io/badge/YAML-000000?logo=yaml&logoSize=auto)
 ![Static Badge](https://img.shields.io/badge/Travis-000000?logo=travis&logoSize=auto)
 
-### Installing
+### Instalación
 
-- #### Server-side (node.js)
-  From the command line:
+- #### Del lado del servidor (node.js)
+  Desde la línea de comandos:
 
 ```sh
 npm install owasp-password-strength-test
 ```
 
-- #### In-browser
-  Within your document:
+- #### En el navegador
+  Dentro de su documento:
 
 ```html
 <script src="owasp-password-strength-test.js"></script>
 ```
 
-### Features
+### Características
 
-This module is built upon the following beliefs:
+Este módulo se basa en las siguientes creencias:
 
-1. <a href="https://xkcd.com/936/" target="_blank" rel="noreferrer noopener">Passphrases are better than passwords</a>
+1. <a href="https://xkcd.com/936/" target="_blank" rel="noreferrer noopener">Las frases de contraseña son mejores que las contraseñas</a>
 
-2. Passwords should be subject to stricter complexity requirements than passphrases.
+2. Las contraseñas deben estar sujetas a requisitos de complejidad más estrictos que las frases de contraseña.
 
-Thus, the module:
+Por lo tanto, el módulo:
 
-- **provides for "required" and "optional" tests**.
-  In order to be considered "strong", a password must pass _all_ required tests, as well as a
-  configurable number of optional tests. This makes it possible to always enforce certain rules (like minimum password length), while giving users
-  flexibility to honor only some of a pool of lower-priority rules.
+- **proporciona pruebas "obligatorias" y "opcionales"**.
+  Para que una contraseña se considere "segura", debe pasar _todas_ las pruebas requeridas, así como una
+  cantidad configurable de pruebas opcionales. Esto permite que siempre se cumplan ciertas reglas (como la longitud mínima de la contraseña), al tiempo que brinda a los usuarios
+  la flexibilidad de respetar solo algunas de un conjunto de reglas de menor prioridad.
 
-- **encourages the use of passphrases over passwords**.
-  Passphrases (by default) are not subject to the same complexity requirements as a password.
-  (Whereby, by default, a "passphrase" can be defined as "a password whose length is greater than or equal to 20 characters.")
+- **incentiva el uso de frases de contraseña en lugar de contraseñas**.
+  Las frases de contraseña (de manera predeterminada) no están sujetas a los mismos requisitos de complejidad que una contraseña.
+  (Por lo que, de manera predeterminada, una "frase de contraseña" se puede definir como "una contraseña cuya longitud es mayor o igual a 20 caracteres").
 
-- **can be arbitrarily extended**
-  As-needed with additional required and optional tests.
+- **se puede extender arbitrariamente**
+  Según sea necesario con pruebas adicionales obligatorias y opcionales.
 
-### Usage
+### Uso
 
-After you've included it into your project, using the module is straightforward:
+Después de haberlo incluido en su proyecto, usar el módulo es sencillo:
 
-- #### Server-side
+- #### Del lado del servidor
 
 ```javascript
 // require the module
 var owasp = require("owasp-password-strength-test");
 
-// invoke test() to test the strength of a password
+// invocar test() para probar la solidez de una contraseña
 var result = owasp.test("correct horse battery staple");
 ```
 
-- #### In Browser
+- #### En el navegador
 
 ```javascript
-// in the browser, including the script will make a
-// `window.owaspPasswordStrengthTest` object available.
+// en el navegador, incluir el script hará que un
+// objeto `window.owaspPasswordStrengthTest` esté disponible.
 var result = owaspPasswordStrengthTest.test("correct horse battery staple");
 ```
 
-The returned value will take this shape when the password is valid:
+El valor devuelto tendrá esta forma cuando la contraseña sea válida:
 
 ```javascript
 {
-  errors              : [],
-  failedTests         : [],
-  requiredTestErrors  : [],
-  optionalTestErrors  : [],
-  passedTests         : [ 0, 1, 2, 3, 4, 5, 6 ],
-  isPassphrase        : false,
-  strong              : true,
-  optionalTestsPassed : 4
+errors : [],
+failedTests : [],
+requiredTestErrors : [],
+optionTestErrors : [],
+passedTests : [ 0, 1, 2, 3, 4, 5, 6 ],
+isPassphrase : false,
+strong : true,
+optionTestsPassed : 4
 }
 ```
 
-and will take this shape when the password is invalid:
+y tendrá esta forma cuando la contraseña no sea válida:
 
 ```javascript
 {
-  errors: [
-      'The password must be at least 10 characters long.',
-      'The password must contain at least one uppercase letter.',
-      'The password must contain at least one number.',
-      'The password must contain at least one special character.'
-    ],
-    failedTests         : [ 0, 4, 5, 6 ],
-    passedTests         : [ 1, 2, 3 ],
-    requiredTestErrors  : [
-      'The password must be at least 10 characters long.',
-    ],
-    optionalTestErrors  : [
-      'The password must contain at least one uppercase letter.',
-      'The password must contain at least one number.',
-      'The password must contain at least one special character.'
-    ],
-    isPassphrase        : false,
-    strong              : false,
-    optionalTestsPassed : 1
+errors: [
+'La contraseña debe tener al menos 10 caracteres.',
+'La contraseña debe contener al menos una letra mayúscula.',
+'La contraseña debe contener al menos un número.',
+'La contraseña debe contener al menos un carácter especial.'
+],
+failedTests : [ 0, 4, 5, 6 ],
+passedTests : [ 1, 2, 3 ],
+requiredTestErrors : [
+'La contraseña debe tener al menos 10 caracteres.',
+],
+optionalTestErrors : [
+'La contraseña debe contener al menos una letra mayúscula.',
+'La contraseña debe contener al menos un número.',
+'La contraseña debe contener al menos un carácter especial.'
+],
+isPassphrase : false,
+strong : false,
+optionalTestsPassed : 1
 }
 ```
 
-Whereby:
+Por lo que:
 
-- `errors` is an `array` of `string`s of error messages associated with the failed tests.
+- `errors` es un `array` de `string`s de mensajes de error asociados con las pruebas fallidas.
 
-- `failedTests` enumerates which tests have failed, beginning from 0 with the first required test
+- `failedTests` enumera qué pruebas han fallado, comenzando desde 0 con la primera prueba requerida
 
-- `passedTests` enumerates which tests have succeeded, beginning from 0 with the first required test
+- `passedTests` enumera qué pruebas han tenido éxito, comenzando desde 0 con la primera prueba requerida
 
-- `requiredTestErrors` is an array containing the error messages of required tests that have failed.
+- `requiredTestErrors` es una matriz que contiene los mensajes de error de las pruebas requeridas que han fallado.
 
-- `optionalTestErrors` is an array containing the error messages of optional tests that have failed.
+- `optionalTestErrors` es una matriz que contiene los mensajes de error de las pruebas opcionales que han fallado.
 
-- `isPassphrase` is a `boolean` indicating whether or not the password was considered to be a passphrase.
+- `isPassphrase` es un `boolean` que indica si la contraseña se consideró o no una frase de contraseña.
 
-- `strong` is a `boolean` indicating whether or not the user's password satisfied the strength requirements.
+- `strong` es un `boolean` que indica si la contraseña del usuario cumplió o no con los requisitos de seguridad.
 
-- `optionalTestsPassed` is a `number` indicating how many of the optional tests were passed.
-  In order for the password to be considered "strong", it (by default) must either be a passphrase,
-  or must pass a number of optional tests that is equal to or greater than `configs.minOptionalTestsToPass`.
+- `optionalTestsPassed` es un `number` que indica cuántas de las pruebas opcionales se aprobaron.
+  Para que la contraseña se considere "segura", debe ser (por defecto) una frase de contraseña,
+  o debe pasar una cantidad de pruebas opcionales que sea igual o mayor que `configs.minOptionalTestsToPass`.
 
-### Configuring
+### Configuración
 
-The module may be configured as follows:
+El módulo se puede configurar de la siguiente manera:
 
 ```javascript
 var owasp = require("owasp-password-strength-test");
 
-// Pass a hash of settings to the `config` method. The settings shown here are
-// the defaults.
+// Pase un hash de configuraciones al método `config`. Las configuraciones que se muestran aquí son
+// las predeterminadas.
 owasp.config({
   allowPassphrases: true,
   maxLength: 128,
@@ -168,58 +168,59 @@ owasp.config({
 });
 ```
 
-Whereby:
+Por lo que:
 
-- `allowPassphrases` is a `boolean` that toggles the "passphrase" mechanism on and off.
-  If set to `false`, the strength-checker will abandon the notion of "passphrases", and will subject all passwords to the same complexity requirements.
+- `allowPassphrases` es un `boolean` que activa y desactiva el mecanismo de "frase de contraseña".
 
-- `maxLength` is a constraint on a password's maximum length.
+- `false`, el verificador de fortaleza abandonará la noción de "frases de contraseña" y someterá todas las contraseñas a los mismos requisitos de complejidad.
 
-- `minLength` is a constraint on a password's minimum length.
+- `maxLength` es una restricción sobre la longitud máxima de una contraseña.
 
-- `minPhraseLength` is the minimum length a password needs to achieve in order to be considered a "passphrase" (and thus exempted from the optional complexity tests by default).
+- `minLength` es una restricción sobre la longitud mínima de una contraseña.
 
-- `minOptionalTestsToPass` is the minimum number of optional tests that a password must pass in order to be considered "strong".
-  By default (per the OWASP guidelines), four optional complexity tests are made, and a password must pass at least three of them in order to be considered "strong".
+- `minPhraseLength` es la longitud mínima que una contraseña debe alcanzar para ser considerada una "frase de contraseña" (y, por lo tanto, exenta de las pruebas de complejidad opcionales de forma predeterminada).
 
-### Extending
+- `minOptionalTestsToPass` es la cantidad mínima de pruebas opcionales que debe pasar una contraseña para que se la considere "segura".
+  De manera predeterminada (según las pautas de OWASP), se realizan cuatro pruebas de complejidad opcionales y una contraseña debe pasar al menos tres de ellas para que se la considere "segura".
 
-If you would like to filter passwords through additional tests beyond the default, you may simply push new tests onto the appropriate arrays within the module's `test` object:
+### Ampliación
+
+Si desea filtrar contraseñas mediante pruebas adicionales a las predeterminadas, puede simplemente insertar nuevas pruebas en las matrices adecuadas dentro del objeto `test` del módulo:
 
 ```javascript
 var owasp = require("owasp-password-strength-test");
 
-// push "required" tests onto `tests.required` array, and push "optional" tests
-// onto the `tests.optional` array.
+// inserte las pruebas "obligatorias" en el array `tests.required` y las pruebas "opcionales"
+// en la matriz `tests.optional`.
 owasp.tests.required.push(function (password) {
   if (password === "one two three four five") {
-    return "That's the kind of thing an idiot would have on his luggage!";
+    return "¡Ese es el tipo de cosas que un idiota llevaría en su equipaje!";
   }
 });
 ```
 
-Test functions must resemble the following:
+Las funciones de prueba deben parecerse a las siguientes:
 
 ```javascript
-// accept the password as the single argument
+// aceptar la contraseña como único argumento
 function(password) {
 
-  // the "if" conditional should evaluate to `true` if the password is bad
-  if (thePasswordIsBad) {
+// la condición "if" debe evaluarse como `true` si la contraseña es incorrecta
+if (thePasswordIsBad) {
 
-    // On password failure, a string should be returned. It will be pushed
-    // onto an array of errors associated with the password.
-    return "This is the failure message associated with the test";
-  }
+// Si falla la contraseña, se debe devolver una cadena. Se insertará
+// en una matriz de errores asociados con la contraseña.
+return "Este es el mensaje de error asociado con la prueba";
+}
 
-  // if the password is OK, nothing should be returned
+// si la contraseña es correcta, no se debe devolver nada
 }
 ```
 
-### Testing
+### Pruebas
 
-To run the module's test suite, `cd` into its directory and run `npm test`.
-You may first need to run `npm install` to install the required development dependencies. (These dependencies are **not** required in a production environment, and facilitate only unit testing.)
+Para ejecutar el conjunto de pruebas del módulo, haga `cd` en su directorio y ejecute `npm test`.
+Es posible que primero deba ejecutar `npm install` para instalar las dependencias de desarrollo necesarias. (Estas dependencias **no** son necesarias en un entorno de producción y solo facilitan las pruebas unitarias).
 
 ### Limitaciones
 
@@ -248,4 +249,4 @@ OWASP Password Strenght Test es un copycat de <a href="https://github.com/nowsec
 
 <a href="https://linktr.ee/gabriellugooo" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/Créditos-Gabriel%20Lugo-green" alt="Créditos" /></a>
 <img align="center" src="https://komarev.com/ghpvc/?username=GabrielLugoo&label=Vistas%20del%20Perfil&color=green&base=2000" alt="GabrielLugooo" />
-<a href="" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/License-MIT-green" alt="Last Edited" /></a>
+<a href="" target="_blank" rel="noreferrer noopener"> <img align="center" src="https://img.shields.io/badge/License-MIT-green" alt="MIT License" /></a>
