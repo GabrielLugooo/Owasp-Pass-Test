@@ -14,7 +14,7 @@ OWASP Password Strenght Test is not an OWASP project, it is merely based off of 
 ### Skills Learned
 
 - Understanding of OWASP guidelines for authentication and enforcement of passwords.
-- Proficiency in analyzing and interpreting node.js, jsno and yaml.
+- Proficiency in analyzing and interpreting node.js, Jason and Yaml.
 - Ability to generate and recognize signatures and patterns in Authentication, digital identtity, identtity proofing and session management.
 - Enhanced knowledge of network protocols and security vulnerabilities.
 - Development of critical thinking and problem-solving skills in cybersecurity.
@@ -28,6 +28,13 @@ OWASP Password Strenght Test is not an OWASP project, it is merely based off of 
 ![Static Badge](https://img.shields.io/badge/Json-000000?logo=json&logoSize=auto)
 ![Static Badge](https://img.shields.io/badge/YAML-000000?logo=yaml&logoSize=auto)
 ![Static Badge](https://img.shields.io/badge/Travis-000000?logo=travis&logoSize=auto)
+
+- OWASP guidelines
+- HTML5 & Javascript
+- Node.js
+- Jason
+- YAML
+- Travis
 
 ### Installing
 

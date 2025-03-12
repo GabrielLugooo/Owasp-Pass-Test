@@ -29,6 +29,13 @@ OWASP Password Strenght Test no es un proyecto de OWASP, simplemente se basa en 
 ![Static Badge](https://img.shields.io/badge/YAML-000000?logo=yaml&logoSize=auto)
 ![Static Badge](https://img.shields.io/badge/Travis-000000?logo=travis&logoSize=auto)
 
+- OWASP guidelines
+- HTML5 & Javascript
+- Node.js
+- Jason
+- YAML
+- Travis
+
 ### Instalación
 
 - #### Del lado del servidor (node.js)
